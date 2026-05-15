@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plain Jane Designs — Athens, Georgia</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+
+:root{
+  --petal:     #FBEEF3;
+  --bloom:     #F5D6E4;
+  --rose:      #E8A8C0;
+  --lipstick:  #C4607A;
+  --rouge:     #A03050;
+  --midnight:  #1A0A12;
+  --smoke:     #7A5A65;
+  --mist:      #F9F3F6;
+  --white:     #FFFFFF;
+  --border:    rgba(196,96,122,0.12);
+  --border-md: rgba(196,96,122,0.22);
+}
+
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--mist);color:var(--midnight);font-weight:300;font-size:15px;line-height:1.7;overflow-x:hidden;}
+
+/* ── ANNOUNCEMENT ── */
+.ann{
+  background:var(--rouge);
+  color:#fdeef4;
+  text-align:center;
+  padding:10px 20px;
+  font-size:11.5px;
+  letter-spacing:1.8px;
+  text-transform:uppercase;
+  font-weight:400;
+}
+.ann span{opacity:.6;margin:0 12px;}
+
+/* ── HEADER ── */
+header{
+  background:var(--white);
+  border-bottom:1px solid var(--border);
+  position:sticky;top:0;z-index:200;
+}
+.hdr{
+  max-width:1280px;margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;
+  align-items:center;padding:16px 48px;
+}
+.hdr-nav{display:flex;gap:32px;list-style:none;}
+.hdr-nav a{
+  text-decoration:none;font-size:11px;letter-spacing:1.8px;
+  text-transform:uppercase;color:var(--smoke);font-weight:400;
+  transition:color .2s;cursor:pointer;
+}
+.hdr-nav a:hover{color:var(--lipstick);}
+
+.logo{text-align:center;}
+.logo-mark{
+  font-family:'Playfair Display',serif;
+  font-size:26px;font-weight:400;font-style:italic;
+  color:var(--midnight);letter-spacing:1px;line-height:1;
+}
+.logo-rule{
+  display:flex;align-items:center;gap:10px;
+  margin-top:5px;justify-content:center;
+}
+.logo-rule::before,.logo-rule::after{
+  content:'';flex:1;height:1px;
+  background:linear-gradient(to right,transparent,var(--rose),transparent);
+  max-width:40px;
+}
+.logo-city{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--rose);font-weight:400;}
+
+.hdr-right{display:flex;justify-content:flex-end;align-items:center;gap:18px;}
+.ico{background:none;border:none;cursor:pointer;color:var(--smoke);transition:color .2s;display:flex;align-items:center;}
+.ico:hover{color:var(--lipstick);}
+.cart-wrap{position:relative;display:flex;}
+.cart-dot{
+  position:absolute;top:-4px;right:-4px;
+  background:var(--lipstick);color:var(--white);
+  font-size:8px;width:14px;height:14px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-weight:500;
+}
+.btn-book{
+  background:var(--lipstick);color:var(--white);border:none;
+  padding:9px 22px;font-size:10.5px;letter-spacing:1.5px;
+  text-transform:uppercase;font-family:'DM Sans',sans-serif;font-weight:400;
+  cursor:pointer;transition:background .2s;
+}
+.btn-book:hover{background:var(--rouge);}
+
+/* ── HERO ── */
+.hero{
+  background:var(--petal);
+  overflow:hidden;position:relative;
+}
+.hero-inner{
+  max-width:1280px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;
+  min-height:580px;
+}
+.hero-left{
+  padding:80px 60px 80px 48px;
+  display:flex;flex-direction:column;justify-content:center;
+  position:relative;z-index:2;
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:10px;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--lipstick);font-weight:400;margin-bottom:24px;
+}
+.hero-tag::before{content:'';width:28px;height:1px;background:var(--rose);}
+.hero-h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(42px,5vw,72px);
+  font-weight:400;line-height:1.08;
+  color:var(--midnight);margin-bottom:8px;
+}
+.hero-h1 em{font-style:italic;color:var(--lipstick);}
+.hero-sub{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(16px,2vw,22px);
+  font-style:italic;color:var(--smoke);
+  margin-bottom:28px;font-weight:300;
+}
+.hero-body{
+  color:var(--smoke);font-size:15px;line-height:1.85;
+  max-width:420px;margin-bottom:40px;
+}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-primary{
+  background:var(--midnight);color:var(--white);border:none;
+  padding:15px 38px;font-size:11px;letter-spacing:2px;
+  text-transform:uppercase;font-family:'DM Sans',sans-serif;font-weight:400;
+  cursor:pointer;transition:background .2s,transform .15s;
+}
+.btn-primary:hover{background:var(--rouge);transform:translateY(-1px);}
+.btn-ghost{
+  background:transparent;color:var(--midnight);
+  border:1.5px solid var(--border-md);
+  padding:15px 38px;font-size:11px;letter-spacing:2px;
+  text-transform:uppercase;font-family:'DM Sans',sans-serif;font-weight:400;
+  cursor:pointer;transition:all .2s;
+}
+.btn-ghost:hover{border-color:var(--lipstick);color:var(--lipstick);}
+
+.hero-right{
+  background:var(--bloom);
+  position:relative;overflow:hidden;
+  display:grid;grid-template-columns:1fr 1fr;
+  grid-template-rows:1fr 1fr;gap:3px;
+}
+.hero-tile{
+  background:var(--petal);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:28px 20px;text-align:center;
+  transition:background .25s;cursor:pointer;
+}
+.hero-tile:hover{background:var(--white);}
+.hero-tile-icon{
+  font-size:28px;margin-bottom:12px;
+  display:block;line-height:1;
+}
+.hero-tile-name{
+  font-family:'Playfair Display',serif;
+  font-size:15px;font-weight:400;color:var(--midnight);
+  margin-bottom:6px;
+}
+.hero-tile-desc{font-size:12px;color:var(--smoke);line-height:1.5;}
+.hero-tile-price{
+  font-size:11px;color:var(--lipstick);margin-top:8px;
+  letter-spacing:.5px;
+}
+.hero-badge{
+  position:absolute;bottom:20px;right:20px;
+  background:var(--lipstick);color:var(--white);
+  font-size:9px;letter-spacing:2px;text-transform:uppercase;
+  padding:6px 14px;font-weight:400;
+  border-radius:0;
+}
+
+/* ── PRESS BAR ── */
+.press-bar{
+  background:var(--white);border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  padding:22px 48px;
+}
+.press-inner{
+  max-width:1280px;margin:0 auto;
+  display:flex;align-items:center;gap:40px;
+  justify-content:center;flex-wrap:wrap;
+}
+.press-label{
+  font-size:9px;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--rose);font-weight:400;white-space:nowrap;
+}
+.press-divider{width:1px;height:22px;background:var(--border-md);}
+.press-name{
+  font-family:'Playfair Display',serif;
+  font-size:14px;font-style:italic;color:var(--smoke);
+  opacity:.65;transition:opacity .2s;cursor:default;
+}
+.press-name:hover{opacity:1;color:var(--lipstick);}
+
+/* ── SECTION COMMONS ── */
+.sec{max-width:1280px;margin:0 auto;padding:88px 48px;}
+.sec-center{text-align:center;}
+.eyebrow{
+  font-size:10px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--lipstick);font-weight:400;margin-bottom:16px;
+  display:flex;align-items:center;justify-content:center;gap:14px;
+}
+.eyebrow::before,.eyebrow::after{content:'';flex:1;height:1px;background:var(--rose);max-width:48px;opacity:.5;}
+.eyebrow-left{justify-content:flex-start;}
+.eyebrow-left::before{display:none;}
+.sec-h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(30px,3.5vw,50px);
+  font-weight:400;color:var(--midnight);
+  margin-bottom:14px;line-height:1.15;
+}
+.sec-h2 em{font-style:italic;color:var(--lipstick);}
+.sec-body{color:var(--smoke);max-width:520px;margin:0 auto 60px;line-height:1.85;}
+.sec-body-left{margin-left:0;}
+
+/* ── SERVICES ── */
+.services-bg{background:var(--white);}
+.srv-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1px;background:var(--border);
+  border:1px solid var(--border);
+}
+.srv{
+  background:var(--white);padding:40px 28px 36px;
+  text-align:center;cursor:pointer;
+  transition:background .2s,transform .2s;
+  position:relative;overflow:hidden;
+}
+.srv::after{
+  content:'';position:absolute;
+  bottom:0;left:0;right:0;height:3px;
+  background:var(--lipstick);transform:scaleX(0);
+  transition:transform .3s;
+}
+.srv:hover{background:var(--petal);}
+.srv:hover::after{transform:scaleX(1);}
+.srv-icon{font-size:36px;margin-bottom:20px;display:block;line-height:1;}
+.srv-h3{
+  font-family:'Playfair Display',serif;
+  font-size:18px;font-weight:400;
+  color:var(--midnight);margin-bottom:10px;
+}
+.srv-p{font-size:13px;color:var(--smoke);line-height:1.7;margin-bottom:18px;}
+.srv-link{
+  font-size:10px;letter-spacing:1.8px;text-transform:uppercase;
+  color:var(--lipstick);font-weight:400;cursor:pointer;
+  display:inline-flex;align-items:center;gap:6px;
+  text-decoration:none;border-bottom:1px solid transparent;
+  transition:border-color .2s;padding-bottom:1px;
+}
+.srv-link:hover{border-color:var(--rose);}
+.srv-link::after{content:'→';transition:transform .2s;}
+.srv-link:hover::after{transform:translateX(4px);}
+
+/* ── SHOP ── */
+.shop-bg{background:var(--petal);}
+.shop-header{
+  display:flex;align-items:flex-end;
+  justify-content:space-between;margin-bottom:44px;
+  flex-wrap:wrap;gap:20px;
+}
+.shop-header .sec-h2{margin-bottom:0;}
+.shop-filters{display:flex;gap:8px;flex-wrap:wrap;}
+.filter-btn{
+  background:transparent;border:1px solid var(--border-md);
+  color:var(--smoke);font-size:10.5px;letter-spacing:1.2px;
+  text-transform:uppercase;padding:8px 18px;
+  font-family:'DM Sans',sans-serif;font-weight:400;
+  cursor:pointer;transition:all .2s;
+}
+.filter-btn.active,.filter-btn:hover{
+  background:var(--lipstick);color:var(--white);
+  border-color:var(--lipstick);
+}
+.prod-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+.prod{
+  background:var(--white);cursor:pointer;
+  transition:transform .2s;
+  position:relative;overflow:hidden;
+}
+.prod:hover{transform:translateY(-5px);}
+.prod-img{
+  aspect-ratio:3/4;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-size:13px;color:var(--lipstick);
+  letter-spacing:.5px;position:relative;overflow:hidden;
+}
+.img-1{background:linear-gradient(160deg,#f5d6e4 0%,#edb8ce 100%);}
+.img-2{background:linear-gradient(160deg,#fce4ee 0%,#f5c0d4 100%);}
+.img-3{background:linear-gradient(160deg,#e8c4d8 0%,#d4a0ba 100%);}
+.img-4{background:linear-gradient(160deg,#f8dde8 0%,#edbed0 100%);}
+.img-5{background:linear-gradient(160deg,#f0cce0 0%,#e0a8c0 100%);}
+.img-6{background:linear-gradient(160deg,#fceef4 0%,#f5d0e4 100%);}
+.img-7{background:linear-gradient(160deg,#ddbcd0 0%,#c89ab4 100%);}
+.img-8{background:linear-gradient(160deg,#f8e8f0 0%,#ecc8dc 100%);}
+.prod-badge{
+  position:absolute;top:14px;left:14px;
+  background:var(--rouge);color:var(--white);
+  font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;
+  padding:5px 10px;font-weight:400;
+}
+.prod-badge.new{background:var(--lipstick);}
+.prod-badge.sale{background:#a03050;}
+.prod-wish{
+  position:absolute;top:14px;right:14px;
+  background:rgba(255,255,255,.85);
+  border:none;width:32px;height:32px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;color:var(--rose);font-size:14px;
+  transition:all .2s;
+}
+.prod-wish:hover{background:var(--white);color:var(--lipstick);}
+.prod-info{padding:18px 16px 20px;}
+.prod-type{
+  font-size:9.5px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--rose);margin-bottom:6px;font-weight:400;
+}
+.prod-name{
+  font-family:'Playfair Display',serif;
+  font-size:16px;font-weight:400;color:var(--midnight);
+  margin-bottom:12px;line-height:1.3;
+}
+.prod-foot{display:flex;align-items:center;justify-content:space-between;}
+.prod-price{
+  font-family:'Playfair Display',serif;
+  font-size:17px;color:var(--midnight);
+}
+.prod-add{
+  background:none;border:1px solid var(--border-md);
+  color:var(--lipstick);font-size:9px;letter-spacing:1.5px;
+  text-transform:uppercase;padding:7px 14px;
+  font-family:'DM Sans',sans-serif;cursor:pointer;
+  transition:all .2s;
+}
+.prod-add:hover{background:var(--lipstick);color:var(--white);border-color:var(--lipstick);}
+.shop-cta{text-align:center;margin-top:44px;}
+.btn-outline-dark{
+  background:transparent;border:1.5px solid var(--midnight);
+  color:var(--midnight);padding:14px 44px;
+  font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  font-family:'DM Sans',sans-serif;font-weight:400;cursor:pointer;
+  transition:all .2s;
+}
+.btn-outline-dark:hover{background:var(--midnight);color:var(--white);}
+
+/* ── AFFILIATE ── */
+.aff-bg{background:var(--midnight);}
+.aff-inner{max-width:1280px;margin:0 auto;padding:80px 48px;}
+.aff-header{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:52px;}
+.aff-h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(28px,3.5vw,46px);
+  font-weight:400;color:var(--white);line-height:1.15;
+}
+.aff-h2 em{font-style:italic;color:var(--rose);}
+.aff-p{color:rgba(255,255,255,.45);line-height:1.85;font-size:15px;}
+.aff-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.aff-card{
+  border:1px solid rgba(255,255,255,.08);
+  padding:32px 22px 28px;
+  cursor:pointer;transition:border-color .2s,background .2s;
+  background:rgba(255,255,255,.03);
+  display:flex;flex-direction:column;
+}
+.aff-card:hover{border-color:rgba(196,96,122,.4);background:rgba(196,96,122,.06);}
+.aff-icon{font-size:28px;margin-bottom:18px;display:block;}
+.aff-name{
+  font-family:'Playfair Display',serif;
+  font-size:18px;font-style:italic;
+  color:var(--white);margin-bottom:8px;
+}
+.aff-desc{font-size:12.5px;color:rgba(255,255,255,.4);line-height:1.7;flex:1;margin-bottom:20px;}
+.aff-link{
+  font-size:9.5px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--rose);text-decoration:none;cursor:pointer;
+  display:inline-flex;align-items:center;gap:6px;
+  border-bottom:1px solid rgba(232,168,192,.25);
+  padding-bottom:3px;width:fit-content;
+  transition:border-color .2s,color .2s;
+}
+.aff-link:hover{color:var(--bloom);border-color:var(--rose);}
+.aff-link::after{content:'→';}
+
+/* ── PROCESS ── */
+.proc-bg{background:var(--white);}
+.proc-steps{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:0;position:relative;margin-top:8px;
+}
+.proc-steps::before{
+  content:'';position:absolute;
+  top:36px;left:10%;right:10%;height:1px;
+  background:linear-gradient(to right,var(--bloom),var(--rose),var(--bloom));
+  z-index:0;
+}
+.proc-step{
+  text-align:center;padding:0 20px;
+  position:relative;z-index:1;
+}
+.proc-num{
+  width:72px;height:72px;border-radius:50%;
+  background:var(--petal);border:2px solid var(--rose);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 22px;
+  font-family:'Playfair Display',serif;
+  font-size:22px;font-style:italic;color:var(--lipstick);
+  font-weight:400;
+}
+.proc-h3{
+  font-family:'Playfair Display',serif;
+  font-size:17px;font-weight:400;color:var(--midnight);
+  margin-bottom:10px;
+}
+.proc-p{font-size:13px;color:var(--smoke);line-height:1.7;}
+
+/* ── TESTIMONIALS ── */
+.testi-bg{background:var(--petal);}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.testi{
+  background:var(--white);padding:36px 28px 32px;
+  position:relative;
+}
+.testi-quote{
+  font-family:'Playfair Display',serif;
+  font-size:60px;color:var(--bloom);
+  position:absolute;top:16px;left:22px;
+  line-height:1;font-weight:400;
+}
+.testi-text{
+  font-family:'Playfair Display',serif;
+  font-size:16px;font-style:italic;
+  color:var(--midnight);line-height:1.75;
+  margin-bottom:24px;position:relative;padding-top:28px;
+}
+.testi-stars{color:var(--rose);font-size:13px;letter-spacing:2px;margin-bottom:10px;}
+.testi-author{
+  font-size:11px;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--lipstick);font-weight:400;
+}
+.testi-event{font-size:11.5px;color:var(--smoke);margin-top:3px;}
+.testi-feat{
+  grid-column:1 / -1;
+  background:var(--lipstick);padding:40px 40px;
+  display:grid;grid-template-columns:1fr auto;
+  align-items:center;gap:32px;
+}
+.testi-feat-text{
+  font-family:'Playfair Display',serif;
+  font-size:22px;font-style:italic;
+  color:var(--white);line-height:1.6;
+}
+.testi-feat-author{text-align:right;}
+.testi-feat-name{
+  font-size:11px;letter-spacing:1.5px;
+  text-transform:uppercase;color:rgba(255,255,255,.6);
+}
+.testi-feat-detail{font-size:12px;color:rgba(255,255,255,.4);margin-top:4px;}
+
+/* ── TEAM ── */
+.team-bg{background:var(--white);}
+.team-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:28px;}
+.member{text-align:center;}
+.member-ring{
+  width:96px;height:96px;border-radius:50%;
+  margin:0 auto 16px;
+  border:2px solid var(--border-md);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+.member-ring::after{
+  content:'';position:absolute;
+  inset:-5px;border-radius:50%;
+  border:1px dashed var(--rose);opacity:.4;
+}
+.member-av{
+  width:84px;height:84px;border-radius:50%;
+  background:var(--petal);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;
+  font-size:22px;font-style:italic;
+  color:var(--lipstick);font-weight:400;
+}
+.av-a{background:var(--bloom);}
+.av-b{background:#f0d0e0;}
+.av-c{background:var(--petal);}
+.av-d{background:#fce0ec;}
+.av-e{background:#e8c8d8;}
+.member-name{
+  font-family:'Playfair Display',serif;
+  font-size:16px;font-weight:400;color:var(--midnight);
+  margin-bottom:4px;
+}
+.member-role{
+  font-size:9.5px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--rose);margin-bottom:10px;font-weight:400;
+}
+.member-bio{font-size:12.5px;color:var(--smoke);line-height:1.65;}
+
+/* ── BOOK CTA ── */
+.book-bg{
+  background:var(--petal);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.book-inner{
+  max-width:1280px;margin:0 auto;
+  padding:80px 48px;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:60px;align-items:center;
+}
+.book-left .sec-h2{margin-bottom:16px;}
+.book-left p{color:var(--smoke);line-height:1.85;margin-bottom:32px;}
+.book-form{display:flex;flex-direction:column;gap:14px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.fld{
+  background:var(--white);border:1px solid var(--border-md);
+  padding:13px 16px;font-size:14px;font-family:'DM Sans',sans-serif;
+  color:var(--midnight);outline:none;
+  transition:border-color .2s;width:100%;
+}
+.fld:focus{border-color:var(--lipstick);}
+.fld::placeholder{color:var(--rose);font-size:13px;}
+select.fld{appearance:none;cursor:pointer;}
+.btn-submit{
+  background:var(--lipstick);color:var(--white);border:none;
+  padding:15px;font-size:11px;letter-spacing:2px;
+  text-transform:uppercase;font-family:'DM Sans',sans-serif;
+  font-weight:400;cursor:pointer;transition:background .2s;width:100%;
+}
+.btn-submit:hover{background:var(--rouge);}
+.book-right{
+  background:var(--white);border:1px solid var(--border);
+  padding:40px 36px;
+}
+.binfo-h3{
+  font-family:'Playfair Display',serif;
+  font-size:24px;font-style:italic;color:var(--midnight);
+  margin-bottom:24px;
+}
+.binfo-row{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:16px 0;border-bottom:1px solid var(--border);
+}
+.binfo-row:last-child{border-bottom:none;}
+.binfo-icon{color:var(--rose);margin-top:2px;flex-shrink:0;}
+.binfo-label{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--rose);margin-bottom:4px;font-weight:400;}
+.binfo-val{font-size:14px;color:var(--midnight);line-height:1.5;}
+
+/* ── INSTAGRAM ── */
+.ig-bg{background:var(--midnight);}
+.ig-inner{max-width:1280px;margin:0 auto;padding:72px 48px;}
+.ig-header{text-align:center;margin-bottom:40px;}
+.ig-handle{
+  font-family:'Playfair Display',serif;
+  font-size:28px;font-style:italic;color:var(--rose);
+  margin-bottom:8px;
+}
+.ig-sub{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3);}
+.ig-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;}
+.ig-cell{
+  aspect-ratio:1;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-size:11px;color:var(--lipstick);
+  cursor:pointer;transition:opacity .2s;
+  position:relative;overflow:hidden;
+}
+.ig-cell:hover .ig-overlay{opacity:1;}
+.ig-c1{background:linear-gradient(160deg,#f5d6e4,#e8a8c0);}
+.ig-c2{background:linear-gradient(160deg,#fce4ee,#f0c0d4);}
+.ig-c3{background:linear-gradient(160deg,#e0b8cc,#cca0b8);}
+.ig-c4{background:linear-gradient(160deg,#f8dde8,#eebed0);}
+.ig-c5{background:linear-gradient(160deg,#ecc8dc,#d8a8c4);}
+.ig-c6{background:linear-gradient(160deg,#fbeef3,#f4d0e4);}
+.ig-overlay{
+  position:absolute;inset:0;
+  background:rgba(160,48,80,.7);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transition:opacity .2s;
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-size:13px;color:var(--white);
+}
+
+/* ── FOOTER ── */
+footer{background:#120608;padding:60px 48px 28px;}
+.foot-inner{max-width:1280px;margin:0 auto;}
+.foot-top{
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:48px;margin-bottom:52px;
+}
+.foot-brand .logo-mark{font-size:22px;color:var(--white);}
+.foot-brand .logo-city{color:var(--rose);}
+.foot-brand .logo-rule::before,.foot-brand .logo-rule::after{background:linear-gradient(to right,transparent,var(--rouge),transparent);}
+.foot-brand p{font-size:13px;color:rgba(255,255,255,.3);line-height:1.85;margin-top:18px;}
+.foot-social{display:flex;gap:14px;margin-top:22px;}
+.soc-btn{
+  width:34px;height:34px;border:1px solid rgba(255,255,255,.1);
+  display:flex;align-items:center;justify-content:center;
+  color:rgba(255,255,255,.3);font-size:12px;cursor:pointer;
+  transition:all .2s;text-decoration:none;
+  font-family:'DM Sans',sans-serif;letter-spacing:.5px;
+  font-size:9px;text-transform:uppercase;
+}
+.soc-btn:hover{border-color:var(--rose);color:var(--rose);}
+.foot-col h4{
+  font-size:9.5px;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--rose);margin-bottom:20px;font-weight:400;
+}
+.foot-col ul{list-style:none;}
+.foot-col li{margin-bottom:11px;}
+.foot-col a{
+  font-size:13px;color:rgba(255,255,255,.3);
+  text-decoration:none;transition:color .2s;cursor:pointer;
+}
+.foot-col a:hover{color:var(--bloom);}
+.foot-bottom{
+  border-top:1px solid rgba(255,255,255,.06);
+  padding-top:22px;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+}
+.foot-copy{font-size:11.5px;color:rgba(255,255,255,.2);}
+.foot-links{display:flex;gap:22px;}
+.foot-links a{font-size:11px;color:rgba(255,255,255,.2);text-decoration:none;cursor:pointer;transition:color .2s;}
+.foot-links a:hover{color:var(--rose);}
+
+/* ── SCROLL ANIMATION ── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
+.revealed{opacity:1;transform:translateY(0);}
+</style>
+
+<!-- ANNOUNCEMENT -->
+<div class="ann">
+  ✦ Complimentary consultations — Athens, GA
+  <span>|</span>
+  Call us: (706) 369-7006
+  <span>|</span>
+  Foil · Letterpress · Thermography · Digital
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="hdr">
+    <nav><ul class="hdr-nav">
+      <li><a>Wedding</a></li>
+      <li><a>Invitations</a></li>
+      <li><a>Gifts</a></li>
+      <li><a>In-House Design</a></li>
+    </ul></nav>
+
+    <div class="logo">
+      <div class="logo-mark">plainjane designs</div>
+      <div class="logo-rule"><span class="logo-city">Athens, Georgia · Est. 1999</span></div>
+    </div>
+
+    <div class="hdr-right">
+      <button class="ico" aria-label="Search">
+        <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      </button>
+      <button class="ico" aria-label="Account">
+        <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </button>
+      <div class="cart-wrap">
+        <button class="ico" aria-label="Cart">
+          <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        </button>
+        <span class="cart-dot">3</span>
+      </div>
+      <button class="btn-book">Book Visit</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left reveal">
+      <div class="hero-tag">Boutique Stationery Studio</div>
+      <h1 class="hero-h1">Every Paper Detail,<br><em>Perfectly Yours</em></h1>
+      <p class="hero-sub">Foil-pressed. Letterpress. Completely custom.</p>
+      <p class="hero-body">For over 25 years, we've guided brides and families through every paper detail of their most meaningful moments — from first save-the-date to final thank-you note.</p>
+      <div class="hero-ctas">
+        <button class="btn-primary">Explore Wedding Suites</button>
+        <button class="btn-ghost">Shop All Invitations</button>
+      </div>
+    </div>
+    <div class="hero-right reveal">
+      <div class="hero-tile">
+        <span class="hero-tile-icon">💌</span>
+        <div class="hero-tile-name">Wedding Suites</div>
+        <div class="hero-tile-desc">Custom, foil, letterpress & digital</div>
+        <div class="hero-tile-price">From $225</div>
+      </div>
+      <div class="hero-tile">
+        <span class="hero-tile-icon">✉️</span>
+        <div class="hero-tile-name">Party Invitations</div>
+        <div class="hero-tile-desc">Every occasion, beautifully designed</div>
+        <div class="hero-tile-price">From $95</div>
+      </div>
+      <div class="hero-tile">
+        <span class="hero-tile-icon">🎁</span>
+        <div class="hero-tile-name">Gifts & Registry</div>
+        <div class="hero-tile-desc">Curated gifts for brides & parties</div>
+        <div class="hero-tile-price">From $45</div>
+      </div>
+      <div class="hero-tile">
+        <span class="hero-tile-icon">🖋</span>
+        <div class="hero-tile-name">Monogramming</div>
+        <div class="hero-tile-desc">In-house embossed & raised ink</div>
+        <div class="hero-tile-price">From $38</div>
+      </div>
+      <div class="hero-badge">Featured in The Wedding Magazine</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRESS BAR -->
+<div class="press-bar reveal">
+  <div class="press-inner">
+    <span class="press-label">As seen in</span>
+    <div class="press-divider"></div>
+    <span class="press-name">The Wedding Magazine</span>
+    <div class="press-divider"></div>
+    <span class="press-name">Every Last Detail</span>
+    <div class="press-divider"></div>
+    <span class="press-name">Southern Distinction</span>
+    <div class="press-divider"></div>
+    <span class="press-label">25 Years · Athens, GA</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div class="services-bg">
+  <div class="sec sec-center reveal">
+    <div class="eyebrow">What We Offer</div>
+    <h2 class="sec-h2">A Complete <em>Paper Experience</em></h2>
+    <p class="sec-body">We handle every paper detail of your event — from the first impression to the final note of gratitude.</p>
+    <div class="srv-grid">
+      <div class="srv">
+        <span class="srv-icon">💒</span>
+        <h3 class="srv-h3">Wedding Invitations</h3>
+        <p class="srv-p">Fully customized suites — foil-pressed, letterpress, thermography, or digital. We guide you through every choice from paper to postage.</p>
+        <a class="srv-link">Explore wedding</a>
+      </div>
+      <div class="srv">
+        <span class="srv-icon">🎊</span>
+        <h3 class="srv-h3">Party & Event</h3>
+        <p class="srv-p">Birthdays, showers, galas, anniversaries — beautiful invitations for every occasion that deserves a proper introduction.</p>
+        <a class="srv-link">Browse designs</a>
+      </div>
+      <div class="srv">
+        <span class="srv-icon">🎀</span>
+        <h3 class="srv-h3">Gifts & Registry</h3>
+        <p class="srv-p">Thoughtfully curated gifts for bridal parties, hosts, and the couple — plus full registry management through Bridge Catalog.</p>
+        <a class="srv-link">Shop gifts</a>
+      </div>
+      <div class="srv">
+        <span class="srv-icon">📝</span>
+        <h3 class="srv-h3">Custom Monogramming</h3>
+        <p class="srv-p">In-house embossed and raised-ink stationery, personalized napkins, notecards, and gifts crafted right here in our studio.</p>
+        <a class="srv-link">Learn more</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SHOP -->
+<div class="shop-bg">
+  <div class="sec reveal">
+    <div class="shop-header">
+      <div>
+        <div class="eyebrow eyebrow-left">Shop Now</div>
+        <h2 class="sec-h2">Our <em>Collections</em></h2>
+      </div>
+      <div class="shop-filters">
+        <button class="filter-btn active">All</button>
+        <button class="filter-btn">Wedding</button>
+        <button class="filter-btn">Invitations</button>
+        <button class="filter-btn">Gifts</button>
+        <button class="filter-btn">Semi-Custom</button>
+      </div>
+    </div>
+
+    <div class="prod-grid">
+      <div class="prod">
+        <div class="prod-img img-1">
+          <span>Garden Romance</span>
+          <span class="prod-badge">Best Seller</span>
+          <button class="prod-wish" aria-label="Wishlist">♡</button>
+        </div>
+        <div class="prod-info">
+          <div class="prod-type">Wedding Suite · Foil Press</div>
+          <div class="prod-name">Garden Romance Suite</div>
+          <div class="prod-foot">
+            <span class="prod-price">From $485</span>
+            <button class="prod-add">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="prod">
+        <div class="prod-img img-2">
+          <span>Classic Ivory</span>
+          <button class="prod-wish" aria-label="Wishlist">♡</button>
+        </div>
+        <div class="prod-info">
+          <div class="prod-type">Wedding Suite · Letterpress</div>
+          <div class="prod-name">Classic Ivory Letterpress</div>
+          <div class="prod-foot">
+            <span class="prod-price">From $320</span>
+            <button class="prod-add">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="prod">
+        <div class="prod-img img-3">
+          <span>Blush & Berry</span>
+          <span class="prod-badge new">New</span>
+          <button class="prod-wish" aria-label="Wishlist">♡</button>
+        </div>
+        <div class="prod-info">
+          <div class="prod-type">Wedding Suite · Digital Print</div>
+          <div class="prod-name">Blush & Berry Digital Suite</div>
+          <div class="prod-foot">
+            <span class="prod-price">From $195</span>
+            <button class="prod-add">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="prod">
+        <div class="prod-img img-4">
+          <span>Baby Shower</span>
+          <button class="prod-wish" aria-label="Wishlist">♡</button>
+        </div>
+        <div class="prod-info">
+          <div class="prod-type">Party Invitation</div>
+          <div class="prod-name">Petal Shower Invitation</div>
+          <div class="prod-foot">
+            <span class="prod-price">From $110</span>
+            <button class="prod-add">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="prod">
+        <div class="prod-img img-5">
+          <span>Monogram Gift</span>
+          <button class="prod-wish" aria-label="Wishlist">♡</button>
+        </div>
+        <div class="prod-info">
+          <div class="prod-type">Gift · Personalized</div>
+          <div class="prod-name">Custom Monogram Gift Set</div>
+          <div class="prod-foot">
+            <span class="prod-price">$68</span>
+            <button class="prod-add">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="prod">
+        <div class="prod-img img-6">
+          <span>Save the Date</span>
+          <span class="prod-badge sale">Sale</span>
+          <button class="prod-wish" aria-label="Wishlist">♡</button>
+        </div>
+        <div class="prod-info">
+          <div class="prod-type">Save the Date</div>
+          <div class="prod-name">Floral Script Save the Date</div>
+          <div class="prod-foot">
+            <span class="prod-price">From $85</span>
+            <button class="prod-add">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="prod">
+        <div class="prod-img img-7">
+          <span>Thank You Set</span>
+          <button class="prod-wish" aria-label="Wishlist">♡</button>
+        </div>
+        <div class="prod-info">
+          <div class="prod-type">Thank You Notes</div>
+          <div class="prod-name">Pressed Rose Thank You Set</div>
+          <div class="prod-foot">
+            <span class="prod-price">From $92</span>
+            <button class="prod-add">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="prod">
+        <div class="prod-img img-8">
+          <span>Foil Notecards</span>
+          <span class="prod-badge new">New</span>
+          <button class="prod-wish" aria-label="Wishlist">♡</button>
+        </div>
+        <div class="prod-info">
+          <div class="prod-type">Stationery · Foil</div>
+          <div class="prod-name">Gold Foil Notecard Set</div>
+          <div class="prod-foot">
+            <span class="prod-price">$54</span>
+            <button class="prod-add">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="shop-cta">
+      <button class="btn-outline-dark">View All Products</button>
+    </div>
+  </div>
+</div>
+
+<!-- AFFILIATE LINKS -->
+<div class="aff-bg">
+  <div class="aff-inner reveal">
+    <div class="aff-header">
+      <div>
+        <div class="eyebrow" style="justify-content:flex-start;color:var(--rose);">
+          <span>Design Your Own</span>
+        </div>
+        <h2 class="aff-h2">Personalize It<br><em>Your Way</em></h2>
+      </div>
+      <p class="aff-p">We partner with trusted vendors so you can create and order your own custom pieces — handpicked by our team, available any time.</p>
+    </div>
+    <div class="aff-grid">
+      <div class="aff-card">
+        <span class="aff-icon">🎨</span>
+        <div class="aff-name">Shuler Studio</div>
+        <div class="aff-desc">Design your own custom monogram — our most-loved personalization resource for brides and hosts alike.</div>
+        <a class="aff-link">Shop monograms</a>
+      </div>
+      <div class="aff-card">
+        <span class="aff-icon">💍</span>
+        <div class="aff-name">Bridge Catalog</div>
+        <div class="aff-desc">Build and manage your wedding registry with our curated gift partner — thoughtfully selected for couples.</div>
+        <a class="aff-link">Build your registry</a>
+      </div>
+      <div class="aff-card">
+        <span class="aff-icon">📋</span>
+        <div class="aff-name">Embossed & Raised Ink</div>
+        <div class="aff-desc">Order your own personalized stationery, napkins, and gifts directly through our in-house design portal.</div>
+        <a class="aff-link">Start designing</a>
+      </div>
+      <div class="aff-card">
+        <span class="aff-icon">🖌</span>
+        <div class="aff-name">Semi-Custom Catalog</div>
+        <div class="aff-desc">Browse our full semi-custom library — designs you can personalize and order at your own pace, online.</div>
+        <a class="aff-link">Browse catalog</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<div class="proc-bg">
+  <div class="sec sec-center reveal">
+    <div class="eyebrow">How It Works</div>
+    <h2 class="sec-h2">From Vision to <em>Finished Suite</em></h2>
+    <p class="sec-body">Our signature process takes you from idea to invitation without the overwhelm — we handle every detail.</p>
+    <div class="proc-steps">
+      <div class="proc-step">
+        <div class="proc-num">1</div>
+        <h3 class="proc-h3">Consultation</h3>
+        <p class="proc-p">Book a free appointment in-store or online. Tell us your vision, style, and date.</p>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num">2</div>
+        <h3 class="proc-h3">Design</h3>
+        <p class="proc-p">Our designers create your custom suite — we revise until it's exactly right.</p>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num">3</div>
+        <h3 class="proc-h3">Proof & Approve</h3>
+        <p class="proc-p">Review a printed or digital proof. We don't print a single piece without your sign-off.</p>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num">4</div>
+        <h3 class="proc-h3">Delivered</h3>
+        <p class="proc-p">Your finished suite arrives ready to send — assembly, addressing, and postage guidance included.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="testi-bg">
+  <div class="sec reveal">
+    <div class="sec-center" style="margin-bottom:52px;">
+      <div class="eyebrow">Client Love</div>
+      <h2 class="sec-h2">Stories From <em>Our Brides</em></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">They made this process so fun and easy! They designed exactly what I had envisioned and I received so many compliments on my invitation suite.</p>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-author">Macy Malcolm</div>
+        <div class="testi-event">November Wedding, Athens GA</div>
+      </div>
+      <div class="testi">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">The foil pressing was absolutely stunning. My guests couldn't stop talking about how elegant everything felt. Worth every single penny.</p>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-author">Charlotte R.</div>
+        <div class="testi-event">Spring Wedding</div>
+      </div>
+      <div class="testi">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">From first consultation to holding my finished suite — every step felt intentional and genuinely personal. I couldn't have asked for better.</p>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-author">Sarah & James K.</div>
+        <div class="testi-event">Garden Wedding</div>
+      </div>
+      <div class="testi testi-feat">
+        <p class="testi-feat-text">"Plain Jane Designs is the gold standard for wedding stationery in Athens — every detail handled with warmth, expertise, and genuine care."</p>
+        <div class="testi-feat-author">
+          <div class="testi-feat-name">Every Last Detail</div>
+          <div class="testi-feat-detail">Featured Publication</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TEAM -->
+<div class="team-bg">
+  <div class="sec sec-center reveal">
+    <div class="eyebrow">Meet the Team</div>
+    <h2 class="sec-h2">The People Behind <em>Your Invitation</em></h2>
+    <p class="sec-body">A dedicated studio team bringing creativity, care, and expertise to every client relationship.</p>
+    <div class="team-grid">
+      <div class="member">
+        <div class="member-ring"><div class="member-av av-a">BN</div></div>
+        <div class="member-name">Bethany Nanan</div>
+        <div class="member-role">Owner</div>
+        <p class="member-bio">Bringing heartfelt dedication and boutique expertise to every client relationship at Plain Jane Designs.</p>
+      </div>
+      <div class="member">
+        <div class="member-ring"><div class="member-av av-b">TD</div></div>
+        <div class="member-name">Tammi Draper</div>
+        <div class="member-role">Store Manager</div>
+        <p class="member-bio">The warm heart of our daily operations — Tammi ensures every visit and every order runs beautifully.</p>
+      </div>
+      <div class="member">
+        <div class="member-ring"><div class="member-av av-c">PL</div></div>
+        <div class="member-name">Pearl Lin</div>
+        <div class="member-role">Graphic Designer</div>
+        <p class="member-bio">An exceptional designer in constant communication with every client to bring their vision to life perfectly.</p>
+      </div>
+      <div class="member">
+        <div class="member-ring"><div class="member-av av-d">DH</div></div>
+        <div class="member-name">Denise Huechteman</div>
+        <div class="member-role">Visual Design & Marketing</div>
+        <p class="member-bio">Years of major brand experience — Denise oversees our product mix and the visual soul of the studio.</p>
+      </div>
+      <div class="member">
+        <div class="member-ring"><div class="member-av av-e">CB</div></div>
+        <div class="member-name">Carla Burgess</div>
+        <div class="member-role">Bookkeeper & Inventory</div>
+        <p class="member-bio">The steady hand behind the scenes — keeping every order tracked, every number right, every detail accounted for.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BOOK / CONTACT -->
+<div class="book-bg">
+  <div class="book-inner reveal">
+    <div class="book-left">
+      <div class="eyebrow eyebrow-left">Ready to Begin?</div>
+      <h2 class="sec-h2">Book a Free<br><em>Consultation</em></h2>
+      <p>Tell us a little about your event and we'll reach out to schedule your complimentary appointment — in-store or by phone.</p>
+      <form class="book-form" onsubmit="return false;">
+        <div class="form-row">
+          <input class="fld" type="text" placeholder="Your name">
+          <input class="fld" type="email" placeholder="Email address">
+        </div>
+        <div class="form-row">
+          <input class="fld" type="tel" placeholder="Phone number">
+          <input class="fld" type="text" placeholder="Event date">
+        </div>
+        <select class="fld">
+          <option value="" disabled selected>Type of invitation needed…</option>
+          <option>Wedding Suite — Full Custom</option>
+          <option>Wedding Suite — Semi-Custom</option>
+          <option>Party or Event Invitations</option>
+          <option>Birth Announcement</option>
+          <option>In-House Monogramming</option>
+          <option>Gift & Registry Assistance</option>
+          <option>Other</option>
+        </select>
+        <textarea class="fld" rows="3" placeholder="Tell us a little about your vision…" style="resize:vertical;"></textarea>
+        <button class="btn-submit" type="submit">Request Consultation</button>
+      </form>
+    </div>
+    <div class="book-right">
+      <h3 class="binfo-h3">Visit Us in Athens</h3>
+      <div class="binfo-row">
+        <span class="binfo-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </span>
+        <div>
+          <div class="binfo-label">Address</div>
+          <div class="binfo-val">149 Oneta St, Suite 6G<br>Athens, GA 30601</div>
+        </div>
+      </div>
+      <div class="binfo-row">
+        <span class="binfo-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.61 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.89a16 16 0 0 0 6 6l.86-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.5 16.5"/></svg>
+        </span>
+        <div>
+          <div class="binfo-label">Phone</div>
+          <div class="binfo-val">(706) 369-7006</div>
+        </div>
+      </div>
+      <div class="binfo-row">
+        <span class="binfo-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </span>
+        <div>
+          <div class="binfo-label">Studio Hours</div>
+          <div class="binfo-val">Monday – Friday: 10am – 5pm<br>Saturday: By appointment only</div>
+        </div>
+      </div>
+      <div class="binfo-row">
+        <span class="binfo-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </span>
+        <div>
+          <div class="binfo-label">Email</div>
+          <div class="binfo-val">hello@plainjanedesigns.com</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INSTAGRAM -->
+<div class="ig-bg">
+  <div class="ig-inner reveal">
+    <div class="ig-header">
+      <div class="ig-handle">@plainjanedesigns</div>
+      <div class="ig-sub">Follow us on Instagram</div>
+    </div>
+    <div class="ig-grid">
+      <div class="ig-cell ig-c1"><span>Foil Suite</span><div class="ig-overlay">View post</div></div>
+      <div class="ig-cell ig-c2"><span>Garden Romance</span><div class="ig-overlay">View post</div></div>
+      <div class="ig-cell ig-c3"><span>Letterpress</span><div class="ig-overlay">View post</div></div>
+      <div class="ig-cell ig-c4"><span>Shower Suite</span><div class="ig-overlay">View post</div></div>
+      <div class="ig-cell ig-c5"><span>Monogram Gift</span><div class="ig-overlay">View post</div></div>
+      <div class="ig-cell ig-c6"><span>Thank You Set</span><div class="ig-overlay">View post</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="logo-mark">plainjane designs</div>
+        <div class="logo-rule"><span class="logo-city">Athens, Georgia</span></div>
+        <p>A boutique stationery studio specializing in custom wedding invitations, foil-pressed suites, personalized gifts, and paper details for life's most meaningful moments — crafted with care for over 25 years.</p>
+        <div class="foot-social">
+          <a class="soc-btn" href="https://www.facebook.com/plainjanedesigns" target="_blank">FB</a>
+          <a class="soc-btn" href="https://www.instagram.com/plainjanedesigns/" target="_blank">IG</a>
+          <a class="soc-btn" href="https://in.pinterest.com/janebennett5748" target="_blank">PT</a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Wedding</h4>
+        <ul>
+          <li><a>Wedding Invitations</a></li>
+          <li><a>Save the Dates</a></li>
+          <li><a>Day-Of Stationery</a></li>
+          <li><a>Thank You Notes</a></li>
+          <li><a>Interest Form</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a>Custom Invitations</a></li>
+          <li><a>Semi-Custom</a></li>
+          <li><a>Gifts & Registry</a></li>
+          <li><a>Monogramming</a></li>
+          <li><a>All Products</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Studio</h4>
+        <ul>
+          <li><a>About Us</a></li>
+          <li><a>Meet the Team</a></li>
+          <li><a>Book Appointment</a></li>
+          <li><a>Contact</a></li>
+          <li><a>Press & Features</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span class="foot-copy">© 2026 Plain Jane Designs, Athens GA. All rights reserved.</span>
+      <div class="foot-links">
+        <a>Privacy Policy</a>
+        <a>Terms of Service</a>
+        <a>Shipping Info</a>
+        <a>Returns</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('revealed');obs.unobserve(e.target);}});
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',function(){
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+
+document.querySelectorAll('.prod-wish').forEach(btn=>{
+  btn.addEventListener('click',function(e){
+    e.stopPropagation();
+    this.textContent = this.textContent==='♡' ? '♥' : '♡';
+    this.style.color = this.textContent==='♥' ? '#c4607a' : '';
+  });
+});
+</script>
